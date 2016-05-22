@@ -12,11 +12,11 @@ trait AccountService {
     if (a.balance.amount < amount)
       Failure(new Exception("Insufficient balance in account"))
     else
-      Success(Account(a.no, a.name, a.bank, a.address, a.dateOfOpening, None, balance = Balance(a.balance.amount - amount))
+      Success(Account(a.no, a.name, a.bank, a.address, a.dateOfOpening, None, balance = Balance(a.balance.amount - amount)))
   }
 
   def credit(a: Account, amount: BigDecimal): Try[Account] =
-    Success(Account(a.no, a.name, a.bank, a.address, a.dateOfOpening, None, balance = Balance(a.balance.amount + amount))
+    Success(Account(a.no, a.name, a.bank, a.address, a.dateOfOpening, None, balance = Balance(a.balance.amount + amount)))
 
   def transfer(from: Account, to: Account, amount: BigDecimal): Try[Account] =
     for {
