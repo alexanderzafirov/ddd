@@ -1,0 +1,11 @@
+### SBT template
+# Simple Build Tool
+# http://www.scala-sbt.org/release/docs/Getting-Started/Directories.html#configuring-version-control
+
+target/
+.idea
+project/project
+project/target
+.worksheet
+
+# Created by .ignore support plugin (hsz.mobi)
