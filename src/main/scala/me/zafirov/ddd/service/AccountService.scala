@@ -33,4 +33,9 @@ trait AccountService {
     // ...
     Account(no = "ac1", customer.name, Bank(), customer.address, Calendar.getInstance().getTime, None)
   }
+
+  def calculateInterest[A <: InterestBearingAccount](account: Account, period: Date) = {
+      // computer interest
+  }
+
 }

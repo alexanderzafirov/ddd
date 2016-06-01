@@ -1,13 +1,12 @@
 ### Scala
 Scala has both object-oriented and functional capabilities, which turn out to be a very powerful combination in
 implementing and organizing domain models.
- - use the functional power of Scala to
-implement immutable data and domain behaviors.
+ - use the functional power of Scala to implement immutable data and domain behaviors.
  - use its object-oriented capabilities to modularize our domain models.
  - desired domain model characteristics:
    - functional and reactive:
-        - Algebraic data types (case classes) - helps modeling domain objects – entities and value objects. E.g. Bank,
-          with built-in support for immutability Account etc. as domain entities
+        - Algebraic data types (case classes) - helps modeling domain objects – entities and value objects
+        . E.g. Bank, with built-in support for immutability Account etc. as domain entities
         - Pure functions - helps model domain behavior. E.g. implementing the logic of debit, credit
           etc. in a personal banking system
         - Function composition and higher order functions - compose smaller behaviors to implement
