@@ -2,7 +2,7 @@ package me.zafirov.ddd.model
 
 import java.util.Date
 
-trait Account {
+sealed trait Account {
   def no: String
 
   def name: String

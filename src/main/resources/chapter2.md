@@ -29,3 +29,33 @@ implementing and organizing domain models.
           like actors and models like the actor model of futures that help you model reactive non-blocking
           elements without computation writing low level code that uses threads and locks.
 
+### ADTs and Types
+
+1. Sum type
+We have a base abstraction that generalizes the model of _Currency_. And we have specialized
+subtypes that indicate the various types of currencies that we have in our system. Looking at
+the _Currency.scala_ file, we can say that in our model an instance of currency can be one of USD
+or AUD or EUR or INR. It can take strictly one of these values – we cannot have a currency
+that’s both a USD and an INR. So it’s an OR and in logic we represent OR by a plus. So we can
+say algebraically type Currency = USD + AUD + EUR + INR.
+
+So we have a new data type Currency. Can you figure out how many distinct values can be
+of type Currency? In terms of type theory we call this the number of inhabitants of the data
+type Currency. The answer here is 4 found by summing up the number of distinct values that
+the Currency data type can have. Yes, Currency is a **sum type**.
+
+2. Product type
+Yes, you are correct that an Account can be either a CheckingAccount or a SavingsAccount.
+Here’s another example of a sum type. But let’s now focus on what’s there within a specific
+instance of an Account. A CheckingAccount has a number, a name and a dateOfOpening – we
+have clubbed these attributes together and created a new data type out of it. We did that in
+order to assign some new semantics to this collection of data types. In the language of types
+we represent this as (String, String, Date) => CheckingAccount or more generally type
+CheckingAccount = String x String x Date. In simple terms, a CheckingAccount data type is
+the collection of all valid combinations of the tuple (String, String, Date), which is nothing
+but the Cartesian product of these 3 data types. Hence we call this a **product type**. So in this
+example we have Account as a sum type and each type of Account is a product type.
+
+Sum types and product types provide the necessary abstraction we need for structuring the
+various data of our domain model. While sum types let us model the variations within a
+particular data type, product types help cluster related data into a larger abstraction.
