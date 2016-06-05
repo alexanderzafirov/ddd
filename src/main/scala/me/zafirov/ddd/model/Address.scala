@@ -1,5 +1,3 @@
 package me.zafirov.ddd.model
 
-trait Address {
-
-}
+case class Address()
