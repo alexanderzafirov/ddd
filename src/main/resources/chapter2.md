@@ -1,4 +1,5 @@
 ### Scala
+
 Scala has both object-oriented and functional capabilities, which turn out to be a very powerful combination in
 implementing and organizing domain models.
  - use the functional power of Scala to implement immutable data and domain behaviors.
@@ -59,3 +60,45 @@ example we have Account as a sum type and each type of Account is a product type
 Sum types and product types provide the necessary abstraction we need for structuring the
 various data of our domain model. While sum types let us model the variations within a
 particular data type, product types help cluster related data into a larger abstraction.
+
+### Functional in the Small, OO in the Large
+
+Modules need to be loosely coupled but strongly cohesive. What does this mean? Since a
+module performs a definite task, it has to be cohesive within itself. The abstractions need to
+be small and tight with each of them focused towards doing one specific thing. On the other
+hand when we talk about 2 different modules, the coupling between them should be as
+minimal as possible. It’s definitely not a very healthy sign to have a very strong dependency
+between 2 modules – changes in one will impact the other one and this goes against the
+principles of modular design.
+
+- Modules in Scala
+Scala offers traits and objects as implementation techniques for modular design. Using traits
+you can do mixin based composition. This means you can use traits to compose multiple
+smaller abstractions to build larger ones. Note these are not functions and we are not talking
+of function composition here. Usually a single trait is a small unit of functionality containing
+one or a few methods focused only towards delivering that functionality. Here’s an example
+from our domain.
+
+### Making models reavtive in Scala
+
+1. Manage effects
+In Scala we treat exceptions as effects, in the sense that we abstract them within containers
+that expose functional interfaces to the world. The most common example of treating
+exceptions as effects in Scala is the _Try_ abstraction. Try provides a sum
+type, with one of the variants (_Failure_) abstracting the exception that your computation can
+raise. Try wraps the effect of exceptions within itself and provides a purely functional interface
+to the user. In the more general sense of the term, Try is a monad.
+
+2. Managing failures
+Scala provides a 2-pronged strategy to handle exceptions:
+- make it explicit that a portion of your code can raise an exception. Use the type system
+to your help
+- use abstractions that don’t leak exception management details within your domain
+logic, so that the core logic remains functionally compositional
+
+3. Managing latency
+The idea is simple – wrap your long running computations in a Future. The computation
+will be delegated to some background thread, without blocking the main thread of execution.
+As a result the user experience will not suffer and you can make the result of the computation
+available to the user whenever you have it. Note that this result can also be a failure, in case
+the computation failed – so Future handles both latency and exceptions as effects.

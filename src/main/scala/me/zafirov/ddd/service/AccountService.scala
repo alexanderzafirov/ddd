@@ -34,8 +34,16 @@ trait AccountService {
     Account(no = "ac1", customer.name, Bank(), customer.address, Calendar.getInstance().getTime, None)
   }
 
-  def calculateInterest[A <: InterestBearingAccount](account: Account, period: Date) = {
-      // computer interest
-  }
+  def calculateInterest[A <: SavingsAccount](account: A, period: Date): Try[BigDecimal] =
+    if (account.rateOfInterest == 0) Failure(new Exception("Interest rate not found"))
+    else Success(BigDecimal(10000))
+
+  def getCurrencyBalance[A <: SavingsAccount](account: A): Try[BigDecimal] =
+    Success(BigDecimal(1000L))
+
+
+  def calculateNetAssetValue[A <: SavingsAccount](account: A, ccyBalance: BigDecimal,
+                                                  interest: BigDecimal): Try[BigDecimal] =
+    Success(ccyBalance + interest + 200)
 
 }
