@@ -20,12 +20,12 @@
     - can be shared freely
 
  - Aggregate
-   - the set of participating entities and value objects
-   - these form a consistency boundary
-   - aggregate root
-     - ensure consistency boundary of business rules and transactions within the aggregate
-     - prevent the implementation of the aggregate from leaking out to its clients acting as a
-       façade for all the operations that the aggregate supports.
+    - the set of participating entities and value objects
+    - these form a consistency boundary
+    - Aggregate root
+      - ensure consistency boundary of business rules and transactions within the aggregate
+      - prevent the implementation of the aggregate from leaking out to its clients acting as a
+        façade for all the operations that the aggregate supports.
 
 2. Behavior
   - Service
