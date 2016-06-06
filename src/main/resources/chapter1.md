@@ -42,7 +42,7 @@ transparent expressions.
 - Substitution model helps in equational reasoning.
 
 ### Reactiveness
- 1. Resilient - being responsive to failures. If your system is stuck in a non-
+ - **Resilient** - being responsive to failures. If your system is stuck in a non-
 deterministic state in the face of failures, then you have failed to deliver a
 stable model. It has to respond either by restarting parts of the application
 model or by giving appropriate feedback to the user regarding the next step
@@ -55,7 +55,7 @@ mean that you pollute your domain model with reams of exception handling logic. 
 idea is to identify the fact that failures are certain to occur and implement strategies to handle
 them explicitly as they occur in various parts of your system.
 
- 2. Elastic - responsive to varying load. Systems can face spikes of load
+ - **Elastic** - responsive to varying load. Systems can face spikes of load
 and should be able to maintain the bounds of latency even in the face of
 high loads.
 
@@ -67,7 +67,7 @@ immutable messages without any sharing of mutable state. When your components in
 with asynchronous messages, you have the proper level of isolation as you can afford to have
 transparency of location, concurrency models and the programming language itself.
 
- 3. Message-driven - in order to stay responsive and elastic, systems need to be loosely coupled
+ - **Message-driven** - in order to stay responsive and elastic, systems need to be loosely coupled
 and minimize blocking by using asynchronous message passing
 
     Events can also be thought of as messages that encapsulate a domain concept.
