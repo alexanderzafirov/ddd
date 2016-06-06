@@ -36,7 +36,7 @@ Sum types and product types provide the necessary abstraction we need for struct
 various data of our domain model. While sum types let us model the variations within a
 particular data type, product types help cluster related data into a larger abstraction.
 
-1. **Sum type**
+- **Sum type**
 
  We have a base abstraction that generalizes the model of _Currency_. And we have specialized
 subtypes that indicate the various types of currencies that we have in our system. Looking at
@@ -50,7 +50,7 @@ of type Currency? In terms of type theory we call this the number of inhabitants
 type Currency. The answer here is 4 found by summing up the number of distinct values that
 the Currency data type can have. Yes, Currency is a **sum type**.
 
-2. **Product type**
+- **Product type**
 
  Yes, you are correct that an Account can be either a CheckingAccount or a SavingsAccount.
 Here’s another example of a sum type. But let’s now focus on what’s there within a specific
@@ -82,7 +82,7 @@ from our domain.
 
 ### Making models reactive in Scala
 
-1. Manage effects
+- **Manage effects**
 
  In Scala we treat exceptions as effects, in the sense that we abstract them within containers
 that expose functional interfaces to the world. The most common example of treating
@@ -91,15 +91,15 @@ type, with one of the variants (_Failure_) abstracting the exception that your c
 raise. Try wraps the effect of exceptions within itself and provides a purely functional interface
 to the user. In the more general sense of the term, Try is a monad.
 
-2. Managing failures
+- **Managing failures**
 
  Scala provides a 2-pronged strategy to handle exceptions:
-- make it explicit that a portion of your code can raise an exception. Use the type system
+ - make it explicit that a portion of your code can raise an exception. Use the type system
 to your help
-- use abstractions that don’t leak exception management details within your domain
+ - use abstractions that don’t leak exception management details within your domain
 logic, so that the core logic remains functionally compositional
 
-3. Managing latency
+- **Managing latency**
 
  The idea is simple – wrap your long running computations in a Future. The computation
 will be delegated to some background thread, without blocking the main thread of execution.
