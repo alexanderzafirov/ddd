@@ -1,4 +1,4 @@
-### Scala
+### Scala for Functional Domain Models
 
 Scala has both object-oriented and functional capabilities, which turn out to be a very powerful combination in
 implementing and organizing domain models.

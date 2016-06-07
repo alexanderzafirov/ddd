@@ -1,3 +1,6 @@
+## Functional Domain Modeling
+
+
 ### Domain complexity:
 - essential complexity is inherent
 - incidental complexity - aim is to minimize this
