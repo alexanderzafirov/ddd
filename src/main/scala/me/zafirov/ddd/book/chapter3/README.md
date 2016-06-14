@@ -50,10 +50,24 @@ algebra and will consist of concrete classes and functions that implement the AP
 inconsistent. There can be some detailed business validations, which have not yet been
 executed, but basic stuff like having a negative age field must not be allowed.
 
-2. The Smart Constructor Idiom
+2. Smart Constructor
 
     The standard technique to allow easy construction of objects that need to honor a set of
 constraints is popularly known as the smart constructor idiom. We prohibit the user from
 invoking the basic constructor of the algebraic data type and instead provide a smarter version
 that ensures the user gets back a data type from which she can recover either a valid instance
 of the domain object or an appropriate explanation of the failure.
+
+3. Aggregates with ADT
+
+    An aggregate consists of algebraic data types that form the structure of
+the entity and modules that offer the algebra of manipulating the aggregates in
+a compositional manner.
+When you create aggregates, it’s the responsibility of your API to ensure that such domain
+rules are honored. There many be some complicated business rules which you can validate
+after the aggregate is created. But basic validations must pass on a newly created object, and
+it depends upon the domain to determine which of these rules qualify as _basic_. The smart
+constructor idiom is one of the techniques used to ensure invariants are honored at the point of creation.
+
+4. Repositories and Decoupling
+
