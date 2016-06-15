@@ -54,3 +54,12 @@ def lift3[V[_], A, B, C, D](f: (A, B, C) => D)
 : (V[A], V[B], V[C]) => V[D]
 = apply3(_, _, _)(f)
 ```
+
+4. Monads
+```scala
+trait Monad[F[_]] extends Applicative[F] {
+    def flatMap[A,B](ma: F[A])(f: A => F[B]): F[B]
+    //.. other Applicative functions
+}
+```
+
